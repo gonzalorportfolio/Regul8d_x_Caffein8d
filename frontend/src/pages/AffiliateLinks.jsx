@@ -1,4 +1,4 @@
-const Contact = () => {
+const AffiliateLinks = () => {
     return (
         <div style={{padding: '2rem', color: '#222'}}>
             <h1>Contact</h1>
@@ -7,4 +7,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default AffiliateLinks;

@@ -3,9 +3,9 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Projects';
-import Contact from './pages/Contact';
+import Reviews from './pages/Reviews';
+import Repairs from './pages/Repairs';
+import AffiliateLinks from './pages/AffiliateLinks';
 import NavBar from './pages/NavBar';
 import './App.css';
 
@@ -15,16 +15,16 @@ const router = createBrowserRouter([
     element: <><NavBar /><Home /></>,
   },
   {
-    path: '/about',
-    element: <><NavBar /><About /></>,
+    path: '/reviews',
+    element: <><NavBar /><Reviews /></>,
   },
   {
-    path: '/portfolio',
-    element: <><NavBar /><Portfolio /></>,
+    path: '/repairs',
+    element: <><NavBar /><Repairs /></>,
   },
   {
-    path: '/contact',
-    element: <><NavBar /><Contact /></>,
+    path: '/affiliatelinks',
+    element: <><NavBar /><AffiliateLinks /></>,
   },
 ]);
 

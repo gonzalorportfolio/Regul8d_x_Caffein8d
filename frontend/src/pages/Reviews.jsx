@@ -1,7 +1,7 @@
 // import './About.css';
 import AboutContainer from '../components/AboutContainer';
 import AboutMeIntro from '../components/AboutMeIntro';
-const About = () => {
+const Reviews = () => {
   return (
 		<section className="about-page">
 			<AboutMeIntro />
@@ -11,4 +11,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Reviews;

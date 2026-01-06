@@ -1,4 +1,4 @@
-const Projects = () => {
+const Repairs = () => {
 	return (
 		<div style={{padding: '2rem', color: '#222'}}>
 			<h1>Portfolio</h1>
@@ -7,4 +7,4 @@ const Projects = () => {
 	);
 };
 
-export default Projects;
+export default Repairs;

@@ -5,10 +5,10 @@ const Home = () => {
           <div className="landing">
             <div className="welcomeText">
               <h1>
-                Welcome!
+                Welcome
               </h1>
               <p className="gdev">
-                I'm Gonzalo, <br />a Web Developer.
+                Regulation. <br/>Accuracy. <br/>Coffee.  
               </p>
             </div>
           </div>  
