@@ -1,0 +1,269 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  /* background: #000; */
+  max-height: 100vh;
+  overflow-x: hidden;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 20px 5%;
+  z-index:1;
+}
+
+nav.sticky{
+padding:10px  ;
+background:#fff;
+}
+
+nav .myName{
+  position: relative;
+  font-weight: 700;
+  color:#fff;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.6s;
+}
+
+nav ul{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li{
+  position: relative;
+  list-style: none;
+}
+
+nav ul li a{
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color:#fff;
+  letter-spacing: 2px;
+  font-weight: 500px;
+  transition: 0.6s;
+}
+
+nav ul li a:hover{
+  background-color: rgba(155, 155, 155, 0.212);
+  padding:15px;
+  color:#fff;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.banner{
+  position: relative;
+  width:100%;
+  height: 100vh;
+  background: url('../src/assets/wp2729921.webp');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+nav.sticky .myName,
+nav.sticky ul li a{
+  color:#000;
+}
+
+html {
+  scroll-behavior: smooth;
+  color:white;
+}
+
+.scroll-down {
+  height: 50px;
+  width: 30px;
+  /* border: 2px solid rgb(255, 255, 255); */
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  /* border-radius: 50px; */
+  cursor: pointer;
+}
+
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 2px solid rgb(255, 255, 255);
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite;
+}
+
+.scroll-down::before {
+  top: 30%;
+  animation-delay: 0.3s;
+  /* animation: scroll-down 1s ease-in-out infinite; */
+}
+
+@keyframes scroll-down {
+  0% {
+    /* top:20%; */
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+.landing{
+  display: flex;
+  font-size: 4vw;
+  position: absolute;
+  left: 25%;
+  bottom: 30%;
+  flex-wrap: wrap;
+}
+
+.gdev{ 
+  -webkit-box-reflect: below .25px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.15));
+}
+
+.about-page {
+  padding: 15% 10% 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-me-intro-container {
+  flex: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+   margin-right: 3rem;
+}
+
+.about-me-intro {
+  font-size: 1.5rem;
+ 
+  display: flex;
+  flex-direction: column;
+}
+.about-me-intro h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-section {
+  flex: 60%;
+  font-size: 1rem;
+}
+
+.connect-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .landing {
+    left: 10%;
+    font-size: 6vw;
+    bottom: 20%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 2%;
+  }
+  header .myName {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+  header ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+  }
+  header ul li a {
+    margin: 8px 0;
+    padding: 10px 0;
+    font-size: 1em;
+  }
+  .banner {
+    height: 60vh;
+    background-position: right center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .landing {
+    left: 0;
+    width: 100%;
+    font-size: 8vw;
+    bottom: 10%;
+    padding: 0 5px;
+  }
+  .myPic {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+  .aboutMeCont {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+  .myBio {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+  .skills {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+  .skiLogo {
+    width: 50px;
+  }
+  .projImage {
+    width: 120px;
+  }
+  .form {
+    margin-top: 5%;
+    padding: 5px;
+  }
+  .submit {
+    padding: 10px;
+    font-size: 1em;
+  }
+}

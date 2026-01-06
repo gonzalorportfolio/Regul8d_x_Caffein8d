@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-page",
+  "version": "1.0.11",
+  "description": "Thanks for taking a look here! You can use this as a template to build your own portfolio website, or hire me to do it for you.  ",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm i && npm run build && cd ../server npm i",
+    "start": "cd server && npm i && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonzalorportfolio/portfolio-page.git"
+  },
+  "author": "Gonzalo Romero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gonzalorportfolio/portfolio-page/issues"
+  },
+  "homepage": "https://github.com/gonzalorportfolio/portfolio-page#readme"
+}
