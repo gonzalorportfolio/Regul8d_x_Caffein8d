@@ -1,6 +1,3 @@
-
-
-
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Home from './pages/Home';
 import Reviews from './pages/Reviews';

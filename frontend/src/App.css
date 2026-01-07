@@ -1,14 +1,23 @@
+/* ================= RESET ================= */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
-  /* background: #000; */
-  max-height: 100vh;
+
+html {
+  scroll-behavior: smooth;
+  color: white;
+}
+
+body {
   overflow-x: hidden;
 }
+
+/* ================= NAV ================= */
+
 nav {
   position: fixed;
   top: 0;
@@ -17,20 +26,19 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.6s;
   padding: 20px 5%;
-  z-index:1;
+  transition: 0.6s;
+  z-index: 10;
 }
 
-nav.sticky{
-padding:10px  ;
-background:#fff;
+nav.sticky {
+  padding: 10px;
+  background: #fff;
 }
 
-nav .myName{
-  position: relative;
+nav .myName {
   font-weight: 700;
-  color:#fff;
+  color: #fff;
   text-decoration: none;
   font-size: 2em;
   text-transform: uppercase;
@@ -38,72 +46,103 @@ nav .myName{
   transition: 0.6s;
 }
 
-nav ul{
-  position: relative;
+nav ul {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-nav ul li{
-  position: relative;
+nav ul li {
   list-style: none;
 }
 
-nav ul li a{
-  position: relative;
+nav ul li a {
   margin: 0 15px;
   text-decoration: none;
-  color:#fff;
+  color: #fff;
   letter-spacing: 2px;
-  font-weight: 500px;
-  transition: 0.6s;
-}
-
-nav ul li a:hover{
-  background-color: rgba(155, 155, 155, 0.212);
-  padding:15px;
-  color:#fff;
-  border-radius: 10px;
+  font-weight: 500;
   transition: 0.4s;
 }
 
-.banner{
-  position: relative;
-  width:100%;
-  height: 100vh;
-  background: url('https://i.ibb.co/V0YMTcrP/IMG-0968.jpg');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: end;
-}
-
-
-
-.welcomeText{
-  text-align: right;
+nav ul li a:hover {
+  background-color: rgba(155, 155, 155, 0.212);
+  padding: 15px;
+  border-radius: 10px;
 }
 
 nav.sticky .myName,
-nav.sticky ul li a{
-  color:#000;
+nav.sticky ul li a {
+  color: #000;
 }
 
-html {
-  scroll-behavior: smooth;
-  color:white;
+/* ================= HERO / BANNER ================= */
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('https://i.ibb.co/V0YMTcrP/IMG-0968.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
+
+/* iOS Safari height fix */
+@supports (-webkit-touch-callout: none) {
+  .banner {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Overlay for readability */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.6)
+  );
+  z-index: 0;
+}
+
+.banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= LANDING TEXT ================= */
+
+.landing {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 10%;
+  bottom: 25%;
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.welcomeText {
+  text-align: right;
+}
+
+.gdev {
+  -webkit-box-reflect: below 0.25px
+    linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.15));
+}
+
+/* ================= SCROLL INDICATOR ================= */
 
 .scroll-down {
   height: 50px;
   width: 30px;
-  /* border: 2px solid rgb(255, 255, 255); */
   position: absolute;
   left: 50%;
   bottom: 20px;
-  /* border-radius: 50px; */
   cursor: pointer;
 }
 
@@ -116,7 +155,7 @@ html {
   height: 10px;
   width: 10px;
   transform: translate(-50%, -100%) rotate(45deg);
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid #fff;
   border-top: transparent;
   border-left: transparent;
   animation: scroll-down 1s ease-in-out infinite;
@@ -125,41 +164,22 @@ html {
 .scroll-down::before {
   top: 30%;
   animation-delay: 0.3s;
-  /* animation: scroll-down 1s ease-in-out infinite; */
 }
 
 @keyframes scroll-down {
-  0% {
-    /* top:20%; */
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  60% { opacity: 1; }
   100% {
     top: 90%;
     opacity: 0;
   }
 }
 
-.landing{
-  display: flex;
-  font-size: 4vw;
-  position: absolute;
-  right: 15%;
-  bottom: 30%;
-  flex-wrap: wrap;
-}
-
-.gdev{ 
-  -webkit-box-reflect: below .25px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.15));
-}
+/* ================= ABOUT ================= */
 
 .about-page {
-  padding: 15% 10% 0 10%;
+  padding: 15% 10% 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -169,17 +189,9 @@ html {
   flex: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
-   margin-right: 3rem;
+  margin-right: 3rem;
 }
 
-.about-me-intro {
-  font-size: 1.5rem;
- 
-  display: flex;
-  flex-direction: column;
-}
 .about-me-intro h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -194,84 +206,213 @@ html {
   margin-top: 20px;
   display: flex;
   gap: 15px;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-/* Responsive Styles */
-@media (max-width: 900px) {
+/* ================= MEDIA QUERIES ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .banner {
+    background-position: center;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .banner {
+    min-height: 80vh;
+    background-position: center top;
+  }
+
   .landing {
-    left: 10%;
-    font-size: 6vw;
+    right: 5%;
     bottom: 20%;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 }
 
+/* 🔑 PHONES — IMAGE FLOWS DOWN */
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 2%;
-  }
-  header .myName {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-  }
-  header ul {
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
-  }
-  header ul li a {
-    margin: 8px 0;
-    padding: 10px 0;
-    font-size: 1em;
-  }
+
   .banner {
-    height: 60vh;
-    background-position: right center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    min-height: unset;          /* stop forcing viewport height */
+    height: auto;               /* allow growth */
+    aspect-ratio: 3 / 4;        /* portrait-friendly */
+    padding: 6rem 1rem 4rem;    /* space for nav + text */
+    background-position: center top;
   }
+
   .landing {
-    left: 0;
+    position: relative;         /* stop absolute overflow */
+    bottom: unset;
+    right: unset;
     width: 100%;
-    font-size: 8vw;
-    bottom: 10%;
-    padding: 0 5px;
+    justify-content: center;
+    text-align: center;
+    margin-top: auto;
+    font-size: clamp(2rem, 8vw, 3rem);
   }
-  .myPic {
-    width: 120px;
-    margin-bottom: 10px;
+
+  nav {
+    padding: 10px 3%;
   }
-  .aboutMeCont {
-    font-size: 1rem;
-    padding: 0 5px;
+
+  nav .myName {
+    font-size: 1.3em;
   }
-  .myBio {
-    padding: 10px;
-    font-size: 0.95rem;
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .skills {
-    padding: 8px;
-    font-size: 0.95rem;
+
+  nav ul li a {
+    margin: 8px 0;
   }
-  .skiLogo {
-    width: 50px;
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .banner {
+    aspect-ratio: 9 / 16;
+    padding-bottom: 5rem;
   }
-  .projImage {
-    width: 120px;
+}
+/* ================= AFFILIATE LINKS PAGE ================= */
+
+.affiliate-page {
+  /* IMPORTANT: gives space under your fixed NavBar */
+  padding: 110px 5% 60px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* Your site seems dark; if not, change to #222 */
+  color: #fff;
+}
+
+.affiliate-header {
+  margin-bottom: 24px;
+}
+
+.affiliate-header h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin-bottom: 10px;
+}
+
+.affiliate-description {
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.affiliate-disclaimer {
+  margin-top: 12px;
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 80ch;
+}
+
+/* Grid */
+.affiliate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-link {
+  display: block;
+}
+
+/* THIS prevents the huge image problem */
+.product-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.product-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-name {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.product-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-name a:hover {
+  text-decoration: underline;
+}
+
+.product-description {
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.product-button {
+  margin-top: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.product-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Mobile tweak */
+@media (max-width: 600px) {
+  .affiliate-page {
+    padding: 95px 4% 50px;
   }
-  .form {
-    margin-top: 5%;
-    padding: 5px;
+
+  .affiliate-grid {
+    gap: 14px;
   }
-  .submit {
-    padding: 10px;
-    font-size: 1em;
-  }
+}
+.affiliate-section {
+  margin-top: 28px;
+}
+
+.affiliate-section-header {
+  margin-bottom: 14px;
+}
+
+.affiliate-section-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
