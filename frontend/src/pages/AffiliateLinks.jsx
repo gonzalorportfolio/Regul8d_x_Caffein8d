@@ -72,10 +72,17 @@ const affiliateProducts = [
   },
   {
     category: "Watch Tools",
-    name: "8 Pieces Precision Jewelers Screwdriver Set",
+    name: "Entry level 8 Pieces Precision Jewelers Screwdriver Set",
     link: "https://amzn.to/4qFFYdP",
     imageUrl: "https://m.media-amazon.com/images/I/71HSyBf5kiL._AC_SL1500_.jpg",
     description: "Best budget set of precision screwdrivers for watch repair.",
+  },
+  {
+    category: "Watch Tools",
+    name: "Advance Precision Watch Screwdriver Set with Stand",
+    link: "https://amzn.to/4a7Iv9U",
+    imageUrl: "https://m.media-amazon.com/images/I/61FVBFJOkyL._AC_SL1000_.jpg",
+    description: "A more advanced set of precision screwdrivers for watch repair with extra tips and stand to hold them.",
   },
   {
     category: "Watch Tools",
