@@ -17,14 +17,14 @@ const affiliateProducts = [
     description:
       "Based of the 1980s G-Shock design with modern features.",
   },
-/*{
+{
     category: "Watches",
-    name: "Seiko Alpinist SPB155",
-    link: "https://amzn.to/4jEWV5V",
-    imageUrl: "https://m.media-amazon.com/images/I/61k1PuEbb5L._AC_SX679_.jpg",
+    name: "Seiko Alpinist SPB121",
+    link: "https://amzn.to/4ad9Sjf",
+    imageUrl: "https://m.media-amazon.com/images/I/61CWhZouXiL._AC_SX679_.jpg",
     description:
-      "A classic field watch with a green sunburst dial, sapphire crystal, and 200m water resistance.",
-  },*/
+      "A classic field watch with a green sunburst dial, sapphire crystal, internal compass bezel, and 200 m water resistance.",
+  },
   {
     category: "Watches",
     name: "Seiko Presage Cocktail",
