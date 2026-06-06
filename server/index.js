@@ -39,5 +39,5 @@ app.listen(PORT, () => {
     logger.info('🚀===============================================🚀');
 
     // Start health check
-    serverHealthCheck("https://portfolio-page-5kft.onrender.com/");
+    serverHealthCheck("https://regul8d-x-caffein8d.onrender.com/");
 });

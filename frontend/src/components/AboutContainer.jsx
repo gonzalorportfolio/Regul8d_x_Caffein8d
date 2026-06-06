@@ -1,36 +1,36 @@
 const AboutContainer = () => {
   return (
-      <article className="about-section">
+    <article className="about-section">
+      <p className="about-text">
+        I'm Gonzalo, the collector, tinkerer, and voice behind Regul8d Caffein8d, a watch content
+        brand built for people who actually wear their watches.
+      </p>
+      <p className="about-text">
+        Based in Brooklyn, NY, I've been collecting and wearing timepieces for 28 years. Along the
+        way I picked up movement work, watch restoration, and franken builds, the kind of hands-on
+        experience that only comes from being genuinely obsessed with how these things tick.
+      </p>
+      <p className="about-text">
+        T1NKER is what happens when that obsession meets a camera. No hype. No gatekeeping. Just
+        honest takes on vintage watches, mechanical watch collecting, homage watches, watch
+        regulation, and the real financial and emotional cost of this hobby.
+      </p>
+      <p className="about-text">
+        On Instagram I post Reels and carousels covering everything from budget watch picks to full
+        bench teardowns. On Substack I go deeper: buying guides, collecting philosophy, and the
+        stuff the algorithm won't let me say in 30 seconds.
+      </p>
 
-          <p className="about-text">
-            I was born in Puebla, Mexico, and raised in South Brooklyn (still repping Brooklyn today). 
-            My journey started as a music teacher and administrator before I transitioned into 
-            computer science education in 2017. Since then, I’ve dedicated myself to making 
-            technology approachable, inclusive, and empowering for learners from all backgrounds.
-          </p>
-          <br />
-          <p className="about-text">
-            Currently, I serve as the <strong>Senior Lead Instructor</strong> at 
-            <a style={{ color: "inherit", textDecoration: "none" }} href="https://www.marcylabschool.org/people/gonzalo-romero" target="_blank" rel="noopener noreferrer"> The Marcy Lab School</a>, 
-            where I guide fellows in software engineering. I specialize in breaking down complex concepts, 
-            fostering inclusive learning spaces, and supporting the next generation of builders to see 
-            themselves in tech.
-          </p>
-          <br />
-          <p className="about-text">
-            My mission is simple: <strong>expand access to software engineering education</strong> 
-            for underrepresented learners. I believe in making tech joyful, relevant, and accessible, 
-            and I’m committed to helping students gain both the technical skills and the confidence 
-            to thrive in the industry.
-          </p>
-          <br />
-          <p className="about-text">
-            When I’m not teaching or coding, you’ll find me ice skating, playing hockey, 
-            skateboarding, curating eclectic playlists (rap → punk → screamo → EDM), 
-            or playing a good game of chess. No matter the arena, I bring the same energy: 
-            curiosity, creativity, and a drive to keep learning.
-          </p>
-      </article>
+      <h2 className="about-topics-heading">What I cover</h2>
+      <ul className="about-topics">
+        <li>Vintage watch collecting and identification</li>
+        <li>Mechanical watch regulation and movement work</li>
+        <li>Homage watches and honest alternatives to luxury timepieces</li>
+        <li>Watch bench work and franken builds</li>
+        <li>Budget collecting and value-driven recommendations</li>
+        <li>The culture and community of watch collecting</li>
+      </ul>
+    </article>
   );
 };
 

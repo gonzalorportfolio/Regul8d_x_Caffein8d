@@ -1,14 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.10",
-  "description": "",
+  "name": "regul8d-caffein8d-server",
+  "version": "1.0.11",
+  "description": "Express server for Regul8d Caffein8d — serves the React frontend and API routes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "",
+  "author": "Gonzalo Romero",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.1",

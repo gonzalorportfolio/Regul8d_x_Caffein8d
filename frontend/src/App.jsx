@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Home from './pages/Home';
-import Reviews from './pages/Reviews';
+import About from './pages/About';
 import Repairs from './pages/Repairs';
 import AffiliateLinks from './pages/AffiliateLinks';
 import NavBar from './pages/NavBar';
@@ -12,8 +12,8 @@ const router = createBrowserRouter([
     element: <><NavBar /><Home /></>,
   },
   {
-    path: '/reviews',
-    element: <><NavBar /><Reviews /></>,
+    path: '/about',
+    element: <><NavBar /><About /></>,
   },
   {
     path: '/repairs',
