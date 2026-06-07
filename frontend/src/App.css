@@ -79,7 +79,6 @@ nav .myName {
   text-decoration: none;
   font-size: 1.4rem;
   letter-spacing: 1px;
-  text-transform: uppercase;
   transition: color var(--transition), opacity var(--transition);
   white-space: nowrap;
 }
@@ -823,12 +822,13 @@ nav.sticky ul li a {
 
 @media (max-width: 600px) {
   .banner {
-    min-height: unset;
+    min-height: 100svh;
+    min-height: 100vh; /* fallback */
     height: auto;
-    aspect-ratio: 3 / 4;
-    padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
-    background-position: center top;
+    padding: calc(var(--nav-height) + 2rem) 5% 5rem;
+    background-position: center;
     justify-content: center;
+    align-items: flex-end;
   }
 
   .landing {
@@ -837,7 +837,6 @@ nav.sticky ul li a {
     right: unset;
     width: 100%;
     text-align: center;
-    margin-top: auto;
     font-size: clamp(1.8rem, 7vw, 2.5rem);
   }
 
@@ -845,7 +844,20 @@ nav.sticky ul li a {
     text-align: center;
   }
 
+  .hero-body {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
     justify-content: center;
   }
 
@@ -854,7 +866,8 @@ nav.sticky ul li a {
   }
 
   nav .myName {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
   }
 
   .portfolio-grid {
@@ -873,7 +886,6 @@ nav.sticky ul li a {
 
 @media (max-width: 400px) {
   .banner {
-    aspect-ratio: 9 / 16;
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   }
 }

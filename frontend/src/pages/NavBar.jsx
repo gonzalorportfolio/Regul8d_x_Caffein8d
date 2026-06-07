@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <nav className={sticky ? 'sticky' : ''} aria-label="Main navigation">
       <NavLink to="/" className="myName" onClick={closeMenu}>
-        {logoLoaded ? null : <span className="brand-text">Regul8dCaffein8d</span>}
+        {logoLoaded ? null : <span className="brand-text">REGUL8DCAFFEIN8D</span>}
         <img
           src={LOGO_SRC}
           alt="Regul8dCaffein8d's logo"
