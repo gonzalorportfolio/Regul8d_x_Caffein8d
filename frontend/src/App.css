@@ -26,6 +26,65 @@
   --transition: 0.3s ease;
 }
 
+/* ================= LIGHT MODE ================= */
+
+[data-theme="light"] {
+  --bg:            var(--floral-white);
+  --surface:       rgba(28, 10, 5, 0.05);
+  --surface-hover: rgba(28, 10, 5, 0.09);
+  --border:        rgba(28, 10, 5, 0.12);
+  --text:          var(--coffee-bean);
+  --text-muted:    rgba(28, 10, 5, 0.6);
+  --accent:        #b07d30;
+  --accent-dim:    rgba(176, 125, 48, 0.15);
+  --cta:           var(--burnt-tangerine);
+  --lume:          #3a7a96;
+}
+
+[data-theme="light"] nav.sticky {
+  background: rgba(255, 249, 242, 0.96);
+  box-shadow: 0 1px 0 rgba(28, 10, 5, 0.1);
+}
+
+[data-theme="light"] nav .myName {
+  color: var(--coffee-bean);
+}
+
+[data-theme="light"] nav.sticky .myName {
+  color: var(--coffee-bean);
+}
+
+[data-theme="light"] nav ul li a {
+  color: var(--coffee-bean);
+}
+
+[data-theme="light"] nav ul li a:hover,
+[data-theme="light"] nav ul li a.active {
+  background: rgba(28, 10, 5, 0.07);
+  color: #3a7a96;
+}
+
+[data-theme="light"] nav ul {
+  background: rgba(255, 249, 242, 0.98);
+  border-left-color: rgba(28, 10, 5, 0.1);
+}
+
+[data-theme="light"] .hamburger span {
+  background: var(--coffee-bean);
+}
+
+[data-theme="light"] .theme-toggle {
+  color: var(--coffee-bean);
+}
+
+[data-theme="light"] .connect-links a {
+  color: #3a7a96;
+}
+
+[data-theme="light"] .about-topics li::before {
+  color: #3a7a96;
+}
+
 /* ================= RESET ================= */
 
 *,
@@ -107,6 +166,12 @@ nav.sticky .nav-logo {
   filter: none;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -134,6 +199,28 @@ nav ul li a.active {
 
 nav.sticky ul li a {
   color: var(--text);
+}
+
+/* ================= THEME TOGGLE ================= */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
+  transform: rotate(20deg);
 }
 
 /* ================= HAMBURGER ================= */
@@ -768,6 +855,10 @@ nav.sticky ul li a {
   /* Hamburger visible */
   .hamburger {
     display: flex;
+  }
+
+  .nav-right {
+    gap: 12px;
   }
 
   nav ul {
