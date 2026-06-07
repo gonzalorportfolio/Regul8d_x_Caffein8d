@@ -2,7 +2,7 @@ const AboutContainer = () => {
   return (
     <article className="about-section">
       <p className="about-text">
-        I'm Gonzalo, the collector, tinkerer, and voice behind Regul8d Caffein8d, a watch content
+        I'm T1NKER, the collector, tinkerer, and voice behind Regul8d Caffein8d, a watch content
         brand built for people who actually wear their watches.
       </p>
       <p className="about-text">
