@@ -44,7 +44,7 @@ const NavBar = () => {
       </button>
 
       <ul className={menuOpen ? 'open' : ''}>
-        <li><NavLink to="/reviews" onClick={closeMenu}>About</NavLink></li>
+        <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
         {/* Portfolio and Gear & Picks hidden — re-enable by uncommenting */}
         {/* <li><NavLink to="/repairs" onClick={closeMenu}>Portfolio</NavLink></li> */}
         {/* <li><NavLink to="/affiliatelinks" onClick={closeMenu}>Gear &amp; Picks</NavLink></li> */}
