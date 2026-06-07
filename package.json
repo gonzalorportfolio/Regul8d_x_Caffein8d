@@ -4,7 +4,7 @@
   "description": "Regul8d Caffein8d (T1NKER) — watch collecting content brand. Vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.",
   "main": "server/index.js",
   "scripts": {
-    "build": "cd frontend && npm i && npm run build && cd ../server && npm i",
+    "build": "cd frontend && npm install --omit=optional && npm run build && cd ../server && npm install",
     "start": "cd server && npm i && npm start"
   },
   "repository": {
