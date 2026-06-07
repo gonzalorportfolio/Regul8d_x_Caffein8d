@@ -14,17 +14,18 @@ app.use(requestLogger);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Routes
-app.get('/', (req, res) => {
-    res.status(200).json({ status: 'Hi!' });
-});
-
+// API routes
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'API running' });
 });
 
 app.get('/admin/only/health', (req, res) => {
     res.status(200).json({ status: 'Server running' });
+});
+
+// SPA catch-all — serve index.html for all non-API routes so React Router handles them
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
 // Start server
