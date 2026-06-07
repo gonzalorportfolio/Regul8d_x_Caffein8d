@@ -24,7 +24,8 @@ app.get('/admin/only/health', (req, res) => {
 });
 
 // SPA catch-all — serve index.html for all non-API routes so React Router handles them
-app.get('*', (req, res) => {
+// Note: app.get('*') doesn't work in Express 5; app.use() is required
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
