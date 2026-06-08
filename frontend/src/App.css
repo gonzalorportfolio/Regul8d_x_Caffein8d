@@ -980,3 +980,119 @@ nav.sticky ul li a {
     padding-bottom: 4rem;
   }
 }
+
+/* ================= GLOSSARY PAGE ================= */
+
+.glossary-page {
+  padding: calc(var(--nav-height) + 60px) 8% 80px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.glossary-header {
+  margin-bottom: 3.5rem;
+}
+
+.glossary-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.glossary-subhead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.glossary-section {
+  margin-bottom: 4rem;
+}
+
+.glossary-section-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.glossary-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.glossary-term-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.glossary-term-def {
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.glossary-callouts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.glossary-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cta);
+}
+
+.glossary-callout-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.glossary-callout-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cta);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--transition);
+}
+
+.glossary-callout-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .glossary-page {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .glossary-callout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .glossary-callout-link {
+    white-space: normal;
+  }
+}

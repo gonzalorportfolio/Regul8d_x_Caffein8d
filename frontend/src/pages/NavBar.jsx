@@ -61,6 +61,7 @@ const NavBar = () => {
       <div className="nav-right">
         <ul className={menuOpen ? 'open' : ''}>
           <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
+        <li><NavLink to="/glossary" onClick={closeMenu}>Glossary</NavLink></li>
           {/* Portfolio and Gear & Picks hidden — re-enable by uncommenting */}
           {/* <li><NavLink to="/repairs" onClick={closeMenu}>Portfolio</NavLink></li> */}
           {/* <li><NavLink to="/affiliatelinks" onClick={closeMenu}>Gear &amp; Picks</NavLink></li> */}
