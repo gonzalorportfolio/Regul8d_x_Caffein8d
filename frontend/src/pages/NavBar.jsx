@@ -62,6 +62,18 @@ const NavBar = () => {
         <ul className={menuOpen ? 'open' : ''}>
           <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
         <li><NavLink to="/glossary" onClick={closeMenu}>Glossary</NavLink></li>
+        <li><NavLink to="/collection" onClick={closeMenu}>My Collection</NavLink></li>
+        <li><NavLink to="/reviews" onClick={closeMenu}>Reviews</NavLink></li>
+        <li><NavLink to="/substack" onClick={closeMenu}>Substack</NavLink></li>
+        <li>
+          <NavLink
+            to="/start-here"
+            onClick={closeMenu}
+            className={({ isActive }) => isActive ? 'nav-start-here active' : 'nav-start-here'}
+          >
+            Start Here
+          </NavLink>
+        </li>
           {/* Portfolio and Gear & Picks hidden — re-enable by uncommenting */}
           {/* <li><NavLink to="/repairs" onClick={closeMenu}>Portfolio</NavLink></li> */}
           {/* <li><NavLink to="/affiliatelinks" onClick={closeMenu}>Gear &amp; Picks</NavLink></li> */}
