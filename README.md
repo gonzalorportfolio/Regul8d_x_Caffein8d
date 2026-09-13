@@ -1,72 +1,70 @@
-# Gonzalo Romero Portfolio
+# Regul8d Caffein8d (T1NKER)
 
-![screenshot](./readme/gonzalowebdev.jpg)
+Watch collecting content brand — vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.
 
-[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?logo=render&logoColor=white&style=for-the-badge)](https://gonzalorwebdev.mywire.org/)
+**Stack:** Next.js (App Router) · Vercel · Neon Postgres
 
-## Project Introduction
+## Local development
 
-<!-- What is the project about? Why did you build it? Who was it built for? -->
+```bash
+cp .env.example .env.local
+# set DATABASE_URL (Neon) and NEXT_PUBLIC_SITE_URL
 
-**What is this project?**
+npm install
+npm run dev
+```
 
-This is my Portfolio Page!
+Open [http://localhost:3000](http://localhost:3000).
 
-**Why was it built?**
+## Neon setup
 
-I want to show off my skills as a Web Developer and tell you all about me in the way I know best.
+1. Create a project at [neon.tech](https://neon.tech).
+2. Copy the **pooled** connection string into `DATABASE_URL` (Vercel env + `.env.local`).
+3. Apply the schema:
 
-**Who is it for?**
+```bash
+npm run db:push
+```
 
-If you want to hire me, it’s for you! It’s also a template that you can use to build your own portfolio site. 
+Or paste `db/schema.sql` into the Neon SQL Editor.
 
----
+Tables: `watches`, `reviews`, `products`. Collection and Reviews pages read from Neon when rows exist; otherwise they show the existing placeholders.
 
-## 🚀 Tech Stack
+## Vercel deploy
 
-**Frontend:**  
-![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge)
-![React](https://img.shields.io/badge/-React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge)
-![React Router v7+](https://img.shields.io/badge/-React_Router_v7-CA4245?logo=react-router&logoColor=white&style=for-the-badge)
+1. Import this repo in [Vercel](https://vercel.com).
+2. Framework preset: **Next.js** (root directory `.`).
+3. Environment variables:
+   - `DATABASE_URL` — Neon pooled URL
+   - `NEXT_PUBLIC_SITE_URL` — your production URL (e.g. `https://your-app.vercel.app`)
+4. Deploy. Optional: add the [Neon Vercel Integration](https://vercel.com/integrations/neon) to provision `DATABASE_URL` automatically.
 
-**Backend:**  
-![Node.js](https://img.shields.io/badge/-Node.js-43853D?logo=node.js&logoColor=white&style=for-the-badge)
-![Express](https://img.shields.io/badge/-Express-000000?logo=express&logoColor=white&style=for-the-badge)
+Health check: `GET /api/health` (reports app + DB connectivity).
 
-**Database:**  
-_Coming soon_  
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?logo=postgresql&logoColor=white&style=for-the-badge)
+## Scripts
 
-**Deployment & Infrastructure:**  
-![Render](https://img.shields.io/badge/-Render-46E3B7?logo=render&logoColor=white&style=for-the-badge)
-![Dynu](https://img.shields.io/badge/-Dynu-0085CA?logo=dyndns&logoColor=white&style=for-the-badge)
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Next.js dev server |
+| `npm run build` | Production build |
+| `npm start` | Serve production build |
+| `npm run lint` | ESLint |
+| `npm run db:push` | Apply `db/schema.sql` to Neon |
 
-**Logging & Monitoring:**  
-![Winston](https://img.shields.io/badge/-Winston-000000?logo=nodedotjs&logoColor=white&style=for-the-badge)
+## Routes
 
-**Development Tools:**  
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=for-the-badge)
-![npm](https://img.shields.io/badge/-npm-CB3837?logo=npm&logoColor=white&style=for-the-badge)
-![nodemon](https://img.shields.io/badge/-nodemon-76D04B?logo=nodemon&logoColor=white&style=for-the-badge)
+| Path | Notes |
+|------|--------|
+| `/` | Home |
+| `/about` | About T1NKER |
+| `/glossary` | Watch collecting glossary |
+| `/collection` | Collection (Neon-backed when seeded) |
+| `/reviews` | Reviews (Neon-backed when seeded) |
+| `/substack` | Substack CTA |
+| `/start-here` | Onboarding hub |
+| `/affiliatelinks` | Gear & picks (not in nav) |
+| `/repairs` | Portfolio leftover (not in nav) |
 
-**License:**  
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+## License
 
-## Changelog
-
-### v1.0.11
-
-- **Enhanced Server Startup Logging:**  
-  The logger now provides a clear, formatted, and informative output when the server starts, including environment, version, port, and a direct local URL.
-
-- **Project Structure Improvements:**  
-  - **Middleware Restructured:**  
-    All middleware functions (such as request logging) are now organized under the `middleware/` directory for better maintainability.
-  - **Utility Functions Modularized:**  
-    Utility functions (like server health checks and logging) have been moved to a dedicated `utils/` directory, making the codebase cleaner and easier to extend.
-    
-- **Minimal About page with styling added:**
-
----
-
-For more details, see the source code and comments in the respective modules.
+MIT

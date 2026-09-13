@@ -68,7 +68,9 @@ dist/
 
 # Gatsby files
 .cache/
-public
+
+# Next.js public assets are tracked; ignore local overrides only
+public/uploads/
 
 # Vuepress build output
 .vuepress/dist
@@ -95,3 +97,4 @@ public
 # Env files
 .env
 .env.*
+!.env.example

@@ -1,11 +1,14 @@
 {
   "name": "regul8d-caffein8d",
-  "version": "1.0.11",
+  "version": "2.0.0",
+  "private": true,
   "description": "Regul8d Caffein8d (T1NKER) — watch collecting content brand. Vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.",
-  "main": "server/index.js",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build && cd ../server && npm install",
-    "start": "cd server && npm i && npm start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "db:push": "node scripts/db-push.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,17 @@
   "bugs": {
     "url": "https://github.com/gonzalorportfolio/Regul8d_x_Caffein8d/issues"
   },
-  "homepage": "https://regul8d-x-caffein8d.onrender.com"
+  "homepage": "https://github.com/gonzalorportfolio/Regul8d_x_Caffein8d#readme",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "dotenv": "^17.4.2",
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.5"
+  }
 }
