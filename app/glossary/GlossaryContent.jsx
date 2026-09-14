@@ -1,14 +1,11 @@
+import ExternalLink from '@/components/ExternalLink';
+
 const GlossaryCallout = ({ label, linkText, url }) => (
   <div className="glossary-callout">
     <span className="glossary-callout-label">{label}</span>
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="glossary-callout-link"
-    >
+    <ExternalLink href={url} className="glossary-callout-link">
       {linkText}
-    </a>
+    </ExternalLink>
   </div>
 );
 
@@ -27,7 +24,7 @@ const GlossarySection = ({ heading, children }) => (
 );
 
 export default function GlossaryContent() { return (
-  <main className="glossary-page">
+  <main id="main-content" className="glossary-page">
 
     <header className="glossary-header">
       <h1>The T1NKER Glossary</h1>

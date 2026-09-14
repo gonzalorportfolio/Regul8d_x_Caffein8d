@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/ExternalLink';
 import { SOCIAL } from '@/lib/site';
 
 const LINKS = [
@@ -43,16 +44,14 @@ export default function Connect() {
   return (
     <section className="connect-links" aria-label="Social links">
       {LINKS.map(({ label, href, icon }) => (
-        <a
+        <ExternalLink
           key={label}
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label={label}
           title={label}
         >
           {icon}
-        </a>
+        </ExternalLink>
       ))}
     </section>
   );

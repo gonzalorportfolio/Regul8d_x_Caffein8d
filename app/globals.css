@@ -5,7 +5,7 @@
   --floral-white:    #FFF9F2;
   --coffee-bean:     #1C0A05;
   --space-indigo:    #1A2744;
-  --burnt-tangerine: #CA3C25;
+  --burnt-tangerine: #B12F1A;
   --light-caramel:   #E6AA68;
   --sky-blue:        #8AC5DC;
 
@@ -48,6 +48,56 @@ body {
   overflow-x: hidden;
 }
 
+/* ================= A11Y UTILITIES ================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.1rem;
+  border-radius: 8px;
+  background: var(--coffee-bean);
+  color: var(--floral-white);
+  border: 2px solid var(--lume);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid var(--lume);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lume);
+  outline-offset: 3px;
+}
+
+.cta-btn:focus-visible,
+.product-card-link:focus-visible,
+.product-button:focus-visible,
+.nav-start-here:focus-visible {
+  outline: 2px solid var(--lume);
+  outline-offset: 3px;
+}
+
 /* ================= NAV ================= */
 
 nav {
@@ -61,6 +111,9 @@ nav {
   padding: 0 5%;
   height: var(--nav-height);
   z-index: 100;
+  background: rgba(28, 10, 5, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: background var(--transition), box-shadow var(--transition), height var(--transition);
 }
 
@@ -206,11 +259,12 @@ nav.sticky ul li a {
   content: "";
   position: absolute;
   inset: 0;
+  /* Decorative photo only — brand copy is in the H1; darker overlay for AA contrast */
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.35) 0%,
-    rgba(0, 0, 0, 0.45) 45%,
-    rgba(0, 0, 0, 0.72) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.58) 45%,
+    rgba(0, 0, 0, 0.8) 100%
   );
   z-index: 0;
 }
@@ -285,13 +339,13 @@ nav.sticky ul li a {
 
 .cta-primary {
   background: var(--burnt-tangerine);
-  color: var(--floral-white);
-  box-shadow: 0 4px 20px rgba(202, 60, 37, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(177, 47, 26, 0.4);
 }
 
 .cta-primary:hover {
-  background: #d94e36;
-  box-shadow: 0 6px 28px rgba(202, 60, 37, 0.55);
+  background: #c43822;
+  box-shadow: 0 6px 28px rgba(177, 47, 26, 0.55);
 }
 
 .cta-secondary {
@@ -679,7 +733,20 @@ nav.sticky ul li a {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.product-card-link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card-link:hover .product-name {
+  color: var(--light-caramel);
 }
 
 .product-card:hover {
@@ -746,7 +813,7 @@ nav.sticky ul li a {
   padding: 10px 14px;
   border-radius: 10px;
   background: var(--burnt-tangerine);
-  color: var(--floral-white);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.85rem;
@@ -755,7 +822,7 @@ nav.sticky ul li a {
 
 .product-button:hover {
   transform: translateY(-1px);
-  background: #d94e36;
+  background: #c43822;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -1168,4 +1235,49 @@ nav ul li a.nav-start-here.active {
   .glossary-callout-link {
     white-space: normal;
   }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hamburger span,
+  .hamburger.open span:nth-child(1),
+  .hamburger.open span:nth-child(2),
+  .hamburger.open span:nth-child(3) {
+    transition: none;
+  }
+
+  nav ul {
+    transition: none;
+  }
+
+  .scroll-down::before,
+  .scroll-down::after {
+    animation: none;
+    opacity: 0.8;
+  }
+
+  .cta-btn:hover,
+  .product-card:hover,
+  .product-button:hover,
+  .product-card:hover .product-image {
+    transform: none;
+  }
+}
+
+.home-main {
+  display: block;
 }

@@ -1,11 +1,13 @@
 import PlaceholderPage from '@/components/PlaceholderPage';
 import { listReviews } from '@/lib/db';
+import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL } from '@/lib/site';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Reviews',
   description: 'Honest watch reviews. No sponsorships. No hype. From Regul8d Caffein8d (T1NKER).',
-};
+  path: '/reviews',
+});
 
 export const dynamic = 'force-dynamic';
 
@@ -25,7 +27,7 @@ export default async function ReviewsPage() {
   }
 
   return (
-    <main className="placeholder-page">
+    <main id="main-content" className="placeholder-page">
       <div className="placeholder-content" style={{ maxWidth: 960, width: '100%' }}>
         <h1>Reviews</h1>
         <p className="placeholder-subhead">Honest takes. No sponsorships. No hype.</p>

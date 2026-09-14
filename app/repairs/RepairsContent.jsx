@@ -1,3 +1,5 @@
+import ExternalLink from '@/components/ExternalLink';
+
 const projects = [
   {
     title: 'Regul8d & Caffein8d',
@@ -39,7 +41,7 @@ const projects = [
 
 export default function RepairsContent() {
   return (
-    <main className="portfolio-page" aria-labelledby="portfolio-heading">
+    <main id="main-content" className="portfolio-page" aria-labelledby="portfolio-heading">
       <header className="portfolio-header">
         <h1 id="portfolio-heading">Portfolio</h1>
         <p className="portfolio-subtitle">
@@ -50,20 +52,13 @@ export default function RepairsContent() {
       <div className="portfolio-grid">
         {projects.map((project) => (
           <article key={project.title} className="portfolio-card">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="portfolio-image-link"
-              aria-label={`Open live demo of ${project.title}`}
-            >
-              <img
-                src={project.imageUrl}
-                alt={`Screenshot of ${project.title}`}
-                className="portfolio-image"
-                loading="lazy"
-              />
-            </a>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.imageUrl}
+              alt={`Screenshot of ${project.title}`}
+              className="portfolio-image"
+              loading="lazy"
+            />
             <div className="portfolio-body">
               <h2 className="portfolio-title">{project.title}</h2>
               <p className="portfolio-description">{project.description}</p>
@@ -73,22 +68,18 @@ export default function RepairsContent() {
                 ))}
               </ul>
               <div className="portfolio-links">
-                <a
+                <ExternalLink
                   href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="portfolio-btn portfolio-btn-primary"
                 >
                   Live Demo
-                </a>
-                <a
+                </ExternalLink>
+                <ExternalLink
                   href={project.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="portfolio-btn portfolio-btn-secondary"
                 >
                   Source
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </article>

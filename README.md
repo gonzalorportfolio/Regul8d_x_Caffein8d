@@ -41,6 +41,16 @@ Tables: `watches`, `reviews`, `products`. Collection and Reviews pages read from
 
 Health check: `GET /api/health` (reports app + DB connectivity).
 
+## SEO
+
+| URL | Purpose |
+|-----|---------|
+| `/sitemap.xml` | Generated sitemap from public routes |
+| `/robots.txt` | Static file in `public/robots.txt` — allows crawlers; disallows `/api/` and `/repairs`; points at sitemap |
+| `/manifest.webmanifest` | Web app manifest |
+
+Set `NEXT_PUBLIC_SITE_URL` to your production domain so canonicals, Open Graph URLs, and the sitemap use the correct host. Submit `https://your-domain/sitemap.xml` in Google Search Console after deploy.
+
 ## Scripts
 
 | Command | Description |

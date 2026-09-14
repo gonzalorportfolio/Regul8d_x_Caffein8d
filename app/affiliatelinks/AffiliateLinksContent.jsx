@@ -164,7 +164,7 @@ export default function AffiliateLinksContent() {
   const grouped = groupByCategory(affiliateProducts);
 
   return (
-    <main className="affiliate-page">
+    <main id="main-content" className="affiliate-page">
       <header className="affiliate-header">
         <h1>Affiliate Links</h1>
         <p className="affiliate-description">
@@ -182,7 +182,7 @@ export default function AffiliateLinksContent() {
         if (!items || items.length === 0) return null;
 
         return (
-          <section key={category} className="affiliate-section" aria-label={category}>
+          <section key={category} className="affiliate-section">
             <div className="affiliate-section-header">
               <h2 className="affiliate-section-title">{category}</h2>
             </div>

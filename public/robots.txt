@@ -1,0 +1,11 @@
+# Regul8d Caffein8d — https://regul8d-x-caffein8d.vercel.app
+# Update the Sitemap URL if NEXT_PUBLIC_SITE_URL / production domain changes.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Legacy portfolio page (noindex in app metadata)
+Disallow: /repairs
+
+Sitemap: https://regul8d-x-caffein8d.vercel.app/sitemap.xml

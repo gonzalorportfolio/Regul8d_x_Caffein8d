@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ExternalLink from '@/components/ExternalLink';
+import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL } from '@/lib/site';
 
 function StartHereCard({ heading, children, linkText, href, external }) {
@@ -7,14 +9,9 @@ function StartHereCard({ heading, children, linkText, href, external }) {
       <h2 className="start-here-card-heading">{heading}</h2>
       <p className="start-here-card-body">{children}</p>
       {external ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="start-here-card-link"
-        >
+        <ExternalLink href={href} className="start-here-card-link">
           {linkText} →
-        </a>
+        </ExternalLink>
       ) : (
         <Link href={href} className="start-here-card-link">
           {linkText} →
@@ -24,15 +21,16 @@ function StartHereCard({ heading, children, linkText, href, external }) {
   );
 }
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Start Here',
   description:
     'New to watch collecting or new to T1NKER? Start with the glossary, curated picks, Substack deep dives, and Instagram.',
-};
+  path: '/start-here',
+});
 
 export default function StartHerePage() {
   return (
-    <main className="start-here-page">
+    <main id="main-content" className="start-here-page">
       <header className="start-here-header">
         <h1>Start Here</h1>
         <p className="start-here-subhead">

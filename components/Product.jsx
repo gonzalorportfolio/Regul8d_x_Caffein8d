@@ -1,40 +1,22 @@
+import ExternalLink from '@/components/ExternalLink';
+
 export default function Product({ name, link, imageUrl, description }) {
   return (
     <article className="product-card">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="product-image-link"
-        aria-label={`Open product page for ${name}`}
-      >
+      <ExternalLink href={link} className="product-card-link">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageUrl}
-          alt={name}
+          alt=""
           className="product-image"
           loading="lazy"
         />
-      </a>
-
-      <div className="product-body">
-        <h3 className="product-name">
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            {name}
-          </a>
-        </h3>
-
-        <p className="product-description">{description}</p>
-
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="product-button"
-        >
-          View Product
-        </a>
-      </div>
+        <div className="product-body">
+          <h3 className="product-name">{name}</h3>
+          <p className="product-description">{description}</p>
+          <span className="product-button">View Product</span>
+        </div>
+      </ExternalLink>
     </article>
   );
 }

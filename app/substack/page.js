@@ -1,11 +1,13 @@
 import PlaceholderPage from '@/components/PlaceholderPage';
+import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL } from '@/lib/site';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Substack',
   description:
     'Longer reads and deeper dives on watch collecting from Regul8d Caffein8d (T1NKER) on Substack.',
-};
+  path: '/substack',
+});
 
 export default function SubstackPage() {
   return (

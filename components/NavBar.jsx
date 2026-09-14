@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 const LOGO_SRC = '/logo.png';
 
@@ -12,10 +12,13 @@ function navClass(isActive, extra = '') {
 
 export default function NavBar() {
   const pathname = usePathname();
+  const menuId = useId();
+  const hamburgerRef = useRef(null);
   const [sticky, setSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
   const [logoLoaded, setLogoLoaded] = useState(false);
+  const [isMobileNav, setIsMobileNav] = useState(false);
 
   if (menuPath !== pathname) {
     setMenuPath(pathname);
@@ -28,7 +31,43 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const update = () => {
+      setIsMobileNav(mq.matches);
+      if (!mq.matches) setMenuOpen(false);
+    };
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        hamburgerRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [menuOpen]);
+
   const closeMenu = () => setMenuOpen(false);
+  const menuHidden = isMobileNav && !menuOpen;
+
+  const navLinkProps = (href) => {
+    const isActive = pathname === href;
+    return {
+      href,
+      onClick: closeMenu,
+      className: navClass(isActive, href === '/start-here' ? 'nav-start-here' : ''),
+      ...(isActive ? { 'aria-current': 'page' } : {}),
+    };
+  };
 
   return (
     <nav className={sticky ? 'sticky' : ''} aria-label="Main navigation">
@@ -37,61 +76,52 @@ export default function NavBar() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={LOGO_SRC}
-          alt="Regul8dCaffein8d's logo"
+          alt={logoLoaded ? 'Regul8d Caffein8d home' : ''}
           className={`nav-logo${logoLoaded ? ' loaded' : ''}`}
           onLoad={() => setLogoLoaded(true)}
           onError={() => setLogoLoaded(false)}
-          aria-hidden={!logoLoaded}
         />
       </Link>
 
       <div className="nav-right">
-        <ul className={menuOpen ? 'open' : ''}>
+        <ul
+          id={menuId}
+          className={menuOpen ? 'open' : ''}
+          inert={menuHidden ? true : undefined}
+          aria-hidden={menuHidden ? true : undefined}
+        >
           <li>
-            <Link href="/about" onClick={closeMenu} className={navClass(pathname === '/about')}>
-              About
-            </Link>
+            <Link {...navLinkProps('/about')}>About</Link>
           </li>
           <li>
-            <Link href="/glossary" onClick={closeMenu} className={navClass(pathname === '/glossary')}>
-              Glossary
-            </Link>
+            <Link {...navLinkProps('/glossary')}>Glossary</Link>
           </li>
           <li>
-            <Link href="/collection" onClick={closeMenu} className={navClass(pathname === '/collection')}>
-              My Collection
-            </Link>
+            <Link {...navLinkProps('/collection')}>My Collection</Link>
           </li>
           <li>
-            <Link href="/reviews" onClick={closeMenu} className={navClass(pathname === '/reviews')}>
-              Reviews
-            </Link>
+            <Link {...navLinkProps('/reviews')}>Reviews</Link>
           </li>
           <li>
-            <Link href="/substack" onClick={closeMenu} className={navClass(pathname === '/substack')}>
-              Substack
-            </Link>
+            <Link {...navLinkProps('/substack')}>Substack</Link>
           </li>
           <li>
-            <Link
-              href="/start-here"
-              onClick={closeMenu}
-              className={navClass(pathname === '/start-here', 'nav-start-here')}
-            >
-              Start Here
-            </Link>
+            <Link {...navLinkProps('/start-here')}>Start Here</Link>
           </li>
         </ul>
 
         <button
+          ref={hamburgerRef}
+          type="button"
           className={`hamburger${menuOpen ? ' open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
+          aria-controls={menuId}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
       </div>
     </nav>
