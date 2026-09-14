@@ -76,6 +76,4 @@ Set `NEXT_PUBLIC_SITE_URL` to your production domain so canonicals, Open Graph U
 | `/affiliatelinks` | Gear & picks (not in nav) |
 | `/repairs` | Portfolio leftover (not in nav) |
 
-## License
 
-MIT
