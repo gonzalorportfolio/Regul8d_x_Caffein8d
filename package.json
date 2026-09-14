@@ -2,13 +2,17 @@
   "name": "regul8d-caffein8d",
   "version": "2.0.0",
   "private": true,
-  "description": "Regul8d Caffein8d (T1NKER) — watch collecting content brand. Vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.",
+  "description": "Regul8d Caffein8d (T1NKER) - watch collecting content brand. Vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "db:push": "node scripts/db-push.js"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "db:push": "node scripts/db-push.js",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,23 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.7",
+    "@playwright/test": "^1.63.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "axe-core": "^4.13.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.5"
+    "eslint-config-next": "^16.3.5",
+    "husky": "^9.1.7",
+    "jsdom": "^30.0.1",
+    "lint-staged": "^17.5.1",
+    "vitest": "^5.0.0",
+    "vitest-axe": "^0.1.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ]
   }
 }

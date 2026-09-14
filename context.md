@@ -16,7 +16,7 @@ The site serves as the brand's home base: a hub that ties together Instagram, Su
 | Styling | Global CSS (`app/globals.css`), no CSS-in-JS or Tailwind |
 | Font | Poppins via `next/font/google` |
 | Linting | ESLint 9 flat config with `eslint-config-next` |
-| Domain | regul8dcaffein8d.com (registered on Namecheap) |
+| Domain | regul8dcaffein8d.com (Namecheap DNS to Vercel) |
 
 ## Architecture
 
@@ -28,6 +28,7 @@ app/
   manifest.js        PWA web app manifest
   robots.js          robots.txt generation
   sitemap.js         Sitemap from PUBLIC_ROUTES in lib/site.js
+  robots.js          robots.txt generation (uses SITE_URL)
   about/page.js
   affiliatelinks/    AffiliateLinksContent.jsx (client component) + page.js
   collection/page.js Reads from Neon (watches table), falls back to placeholder
@@ -60,6 +61,8 @@ scripts/
 
 public/
   hero.jpg           Hero background image
+  og.jpg             Open Graph / Twitter share image (1200x630)
+  icon.svg           Favicon / app icon
 ```
 
 ## Key conventions

@@ -39,13 +39,13 @@ export const metadata = {
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
     locale: 'en_US',
-    images: [{ url: OG_IMAGE, width: 1200, height: 630 }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE_NAME} | Watch Collecting Content | Vintage Watches & Mechanical Watch Reviews`,
     description:
-      'Regul8d Caffein8d (T1NKER) — vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary. Based in Brooklyn, NY.',
+      'Regul8d Caffein8d (T1NKER) - vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary. Based in Brooklyn, NY.',
     images: [OG_IMAGE],
   },
   appleWebApp: {
@@ -53,7 +53,7 @@ export const metadata = {
     capable: true,
   },
   icons: {
-    icon: 'https://fav.farm/%F0%9F%95%91',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
   },
 };
 
