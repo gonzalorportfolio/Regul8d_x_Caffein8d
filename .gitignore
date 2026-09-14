@@ -98,3 +98,8 @@ public/uploads/
 .env
 .env.*
 !.env.example
+# Test / Playwright artifacts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
