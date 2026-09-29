@@ -2013,3 +2013,59 @@ nav ul li a.nav-start-here.active {
   cursor: pointer;
   font-family: inherit;
 }
+
+/* ================= HOME EXPLORE ================= */
+
+.home-explore {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 5% 4rem;
+}
+
+.home-explore-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.home-explore-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.home-explore-card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.home-explore-card:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.home-explore-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.home-explore-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .home-explore-links {
+    grid-template-columns: 1fr;
+  }
+}

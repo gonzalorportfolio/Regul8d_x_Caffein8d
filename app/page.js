@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ExternalLink from '@/components/ExternalLink';
 import { createPageMetadata } from '@/lib/seo';
 import { SITE_DESCRIPTION, SOCIAL } from '@/lib/site';
@@ -30,6 +31,28 @@ export default function HomePage() {
               </ExternalLink>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="home-explore" aria-label="Explore">
+        <h2 className="home-explore-heading">Explore</h2>
+        <div className="home-explore-links">
+          <Link href="/start-here" className="home-explore-card">
+            <h3>Start Here</h3>
+            <p>New to the hobby? This is your entry point.</p>
+          </Link>
+          <Link href="/glossary" className="home-explore-card">
+            <h3>Watch Glossary</h3>
+            <p>Every term you need to know as a collector.</p>
+          </Link>
+          <Link href="/collection" className="home-explore-card">
+            <h3>My Collection</h3>
+            <p>Every watch I own. Photos, specs, stories.</p>
+          </Link>
+          <Link href="/about" className="home-explore-card">
+            <h3>About T1NKER</h3>
+            <p>28 years on the wrist.</p>
+          </Link>
         </div>
       </section>
     </main>
