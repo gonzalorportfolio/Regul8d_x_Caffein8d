@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "db:push": "node scripts/db-push.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:seed": "node scripts/seed-watches.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/gonzalorportfolio/Regul8d_x_Caffein8d#readme",
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
+    "@vercel/blob": "^2.8.0",
     "dotenv": "^17.4.2",
     "next": "^16.3.5",
     "react": "^19.3.0",
