@@ -24,7 +24,7 @@ const GlossarySection = ({ heading, children }) => (
 );
 
 export default function GlossaryContent() { return (
-  <main id="main-content" className="glossary-page">
+  <>
 
     <header className="glossary-header">
       <h1>The T1NKER Glossary</h1>
@@ -234,6 +234,6 @@ export default function GlossaryContent() { return (
       </div>
     </GlossarySection>
 
-  </main>
+  </>
 );
 }
