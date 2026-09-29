@@ -1,11 +1,14 @@
+import Link from 'next/link';
 import PlaceholderPage from '@/components/PlaceholderPage';
+import WatchCard from '@/components/WatchCard';
 import { listWatches } from '@/lib/db';
 import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL } from '@/lib/site';
 
 export const metadata = createPageMetadata({
   title: 'My Collection',
-  description: 'Every watch I own. Every story behind it. Coming soon from Regul8d Caffein8d.',
+  description:
+    'Every watch I own. Photos, specs, and the story behind each piece from Regul8d Caffein8d.',
   path: '/collection',
 });
 
@@ -27,22 +30,28 @@ export default async function CollectionPage() {
   }
 
   return (
-    <main id="main-content" className="placeholder-page">
-      <div className="placeholder-content" style={{ maxWidth: 960, width: '100%' }}>
-        <h1>My Collection</h1>
-        <p className="placeholder-subhead">Every watch I own. Every story behind it.</p>
-        <ul className="about-topics" style={{ textAlign: 'left', marginTop: '2rem' }}>
-          {watches.map((watch) => (
-            <li key={watch.id}>
-              <strong>
-                {watch.brand} {watch.model}
-              </strong>
-              {watch.year ? ` (${watch.year})` : ''}
-              {watch.story ? ` — ${watch.story}` : ''}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <main id="main-content" className="collection-page">
+      <header className="collection-header">
+        <p className="collection-eyebrow">My Collection</p>
+        <h1>Watches on the wrist and on the bench</h1>
+        <p className="collection-intro">
+          Photo-first looks at each piece: what it is, how it wears, and the specs that
+          matter.
+        </p>
+      </header>
+
+      <ul className="collection-grid">
+        {watches.map((watch) => (
+          <li key={watch.id}>
+            <WatchCard watch={watch} />
+          </li>
+        ))}
+      </ul>
+
+      <p className="collection-footer-note">
+        Looking for gear I actually use?{' '}
+        <Link href="/affiliatelinks">See affiliate picks</Link>.
+      </p>
     </main>
   );
 }
