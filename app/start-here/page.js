@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ExternalLink from '@/components/ExternalLink';
 import { createPageMetadata } from '@/lib/seo';
-import { SOCIAL } from '@/lib/site';
+import { SOCIAL, absoluteUrl } from '@/lib/site';
 
 function StartHereCard({ heading, children, linkText, href, external }) {
   return (
@@ -28,9 +28,26 @@ export const metadata = createPageMetadata({
   path: '/start-here',
 });
 
+const navJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: 'Start Here',
+  url: absoluteUrl('/start-here'),
+  hasPart: [
+    { '@type': 'WebPage', name: 'Watch Glossary', url: absoluteUrl('/glossary') },
+    { '@type': 'WebPage', name: 'Curated Picks', url: SOCIAL.benable },
+    { '@type': 'WebPage', name: 'Substack', url: SOCIAL.substackHome },
+    { '@type': 'WebPage', name: 'Instagram', url: SOCIAL.instagram },
+  ],
+};
+
 export default function StartHerePage() {
   return (
     <main id="main-content" className="start-here-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(navJsonLd) }}
+      />
       <header className="start-here-header">
         <h1>Start Here</h1>
         <p className="start-here-subhead">
