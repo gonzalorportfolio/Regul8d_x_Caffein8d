@@ -3,7 +3,7 @@ import PlaceholderPage from '@/components/PlaceholderPage';
 import WatchCard from '@/components/WatchCard';
 import { listWatches } from '@/lib/db';
 import { createPageMetadata } from '@/lib/seo';
-import { SOCIAL } from '@/lib/site';
+import { SOCIAL, absoluteUrl } from '@/lib/site';
 
 export const metadata = createPageMetadata({
   title: 'My Collection',
@@ -16,6 +16,20 @@ export const dynamic = 'force-dynamic';
 
 export default async function CollectionPage() {
   const watches = await listWatches();
+
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'My Watch Collection',
+    url: absoluteUrl('/collection'),
+    numberOfItems: watches.length,
+    itemListElement: watches.map((w, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: absoluteUrl(`/collection/${w.slug}`),
+      name: `${w.brand} ${w.model}`,
+    })),
+  };
 
   if (!watches.length) {
     return (
@@ -31,6 +45,10 @@ export default async function CollectionPage() {
 
   return (
     <main id="main-content" className="collection-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <header className="collection-header">
         <p className="collection-eyebrow">My Collection</p>
         <h1>Watches on the wrist and on the bench</h1>
