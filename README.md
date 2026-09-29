@@ -2,6 +2,8 @@
 
 Watch collecting content brand — vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.
 
+![](./desktop-view.png)
+
 **Stack:** Next.js (App Router) · Vercel · Neon Postgres
 
 ## Local development
