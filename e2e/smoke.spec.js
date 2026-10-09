@@ -23,6 +23,7 @@ test.describe('smoke', () => {
     const sitemapText = await sitemap.text();
     expect(sitemapText).toContain('<urlset');
     expect(sitemapText).toContain('/glossary');
+    expect(sitemapText).toContain('/quiz');
   });
 });
 

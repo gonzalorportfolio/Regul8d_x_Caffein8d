@@ -53,6 +53,10 @@ export default function HomePage() {
             <h3>About T1NKER</h3>
             <p>28 years on the wrist.</p>
           </Link>
+          <Link href="/quiz" className="home-explore-card home-explore-card-wide">
+            <h3>What Watch Are You?</h3>
+            <p>Take our 60-second personality quiz</p>
+          </Link>
         </div>
       </section>
     </main>
