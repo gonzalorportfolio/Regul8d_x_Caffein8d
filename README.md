@@ -1,4 +1,4 @@
-# Regul8d Caffein8d (T1NKER)
+# Regul8d Caffein8d (T1NKER <3)
 
 Watch collecting content brand — vintage watches, mechanical watch regulation, homage watches, bench work, and honest hobby commentary.
 
